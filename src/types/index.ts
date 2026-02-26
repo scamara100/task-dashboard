@@ -34,3 +34,18 @@ export interface TaskFilterProps {
     priority?: 'low' | 'medium' | 'high';
   }) => void;
 }
+
+export interface TaskFormData {
+  title: string;
+  decription: string;
+  status: TaskStatus;
+  priority: 'low' | 'medium' | 'high';
+  dueDate: string;
+}
+
+export interface TaskFormProps {
+  decription: string | number | readonly string[] | undefined;
+  title: string | number | readonly string[] | undefined;
+  onSubmit: (data: TaskFormData) => void;
+  initialData?: TaskFormData; // for edit mode
+}
