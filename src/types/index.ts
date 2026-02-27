@@ -37,15 +37,15 @@ export interface TaskFilterProps {
 
 export interface TaskFormData {
   title: string;
-  decription: string;
+  description: string;
   status: TaskStatus;
   priority: 'low' | 'medium' | 'high';
   dueDate: string;
 }
 
 export interface TaskFormProps {
-  decription: string | number | readonly string[] | undefined;
-  title: string | number | readonly string[] | undefined;
+  description: string;
+  title: string;
   onSubmit: (data: TaskFormData) => void;
   initialData?: TaskFormData; // for edit mode
 }
