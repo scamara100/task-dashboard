@@ -2,7 +2,7 @@ import "./App.css";
 import TaskFilter from "./components/TaskFilter/TaskFilter";
 import { TaskForm } from "./components/TaskForm/TaskForm";
 import { TaskList } from "./components/TaskList/TaskList";
-import type { Task, TaskStatus } from "./types";
+import type { Task, TaskFormData, TaskStatus } from "./types";
 import { useState } from "react";
 
 
@@ -27,11 +27,19 @@ function App() {
     if (filter.priority && task.priority !== filter.priority) return false
     return true
   })
-  
+
+  function handleAddTask(data: TaskFormData){
+    const newTask: Task = {
+      id: crypto.randomUUID(), ...data,
+    }
+
+    setTaskList((prev => [...prev, newTask]
+    ))
+  }
 
   return (
     <>
-      <TaskForm onSubmit={onsubmit}/>
+      <TaskForm onSubmit={handleAddTask} description={""} title={""}/>
       <TaskFilter onFilterChange={setFilter}/>
       <TaskList
         tasks={filterTasks}

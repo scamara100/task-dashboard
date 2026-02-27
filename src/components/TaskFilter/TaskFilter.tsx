@@ -1,12 +1,6 @@
 import { useState } from "react";
 import type {TaskStatus, TaskFilterProps} from "../../types";
 
-// export interface TaskFilterProps {
-//   onFilterChange: (filters: {
-//     status?: TaskStatus;
-//     priority?: 'low' | 'medium' | 'high';
-//   }) => void;
-// }
 
 export default function TaskFilter({onFilterChange}: TaskFilterProps){
     const [status, setStatus] = useState<TaskStatus>()

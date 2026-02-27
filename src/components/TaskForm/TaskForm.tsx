@@ -7,7 +7,7 @@ export function TaskForm({ onSubmit, initialData }: TaskFormProps) {
     title: "",
     description: "",
     status: "pending",
-    priority: "medium",
+    priority: "low",
     dueDate: ""
     },
   );
@@ -53,6 +53,24 @@ export function TaskForm({ onSubmit, initialData }: TaskFormProps) {
             onChange={handleChange}
           />
         </div>
+        <div>
+            <select value={formData.status} onChange={(e) => handleChange(e)}>
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+        </div>
+        <div>
+            <select value={formData.priority} onChange={(e) => handleChange(e)}>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+        </div>
+        <div>
+            <input type="date" value={formData.dueDate} onChange={handleChange} />
+        </div>
+        <button type="submit">Send</button>
       </form>
     </>
   );
